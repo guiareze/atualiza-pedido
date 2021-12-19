@@ -1,0 +1,11 @@
+{
+     "type": "record",
+     "namespace": "br.com.guiareze.atualizapedido.pedido_a_atualizar",
+     "name": "PedidoAtualizacao",
+     "version": "1",
+     "fields": [
+       { "name": "id", "type": "string", "doc": "Identificador unico pedido" },
+       { "name": "status", "type": "string", "doc": "Status do pedido" },
+       { "name": "responsavel", "type": "string", "doc": "Pessoa responsavel pelo atualizacao do pedido" }
+     ]
+}

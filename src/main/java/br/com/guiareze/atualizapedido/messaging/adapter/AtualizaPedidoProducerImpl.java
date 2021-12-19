@@ -15,7 +15,7 @@ public class AtualizaPedidoProducerImpl implements AtualizaPedidoProducer {
     @Autowired
     private KafkaTemplate<String,Object> kafkaTemplate;
 
-    private static Logger logger = LoggerFactory.getLogger(AtualizaPedidoConsumerImpl.class);
+    private static Logger logger = LoggerFactory.getLogger(AtualizaPedidoProducerImpl.class);
 
     @Value("${topic.name}")
     private String topicName;
