@@ -1,5 +1,6 @@
 package br.com.guiareze.atualizapedido.messaging.adapter;
 
+import br.com.guiareze.atualizapedido.client.dto.PedidoDTO;
 import br.com.guiareze.atualizapedido.core.ports.messaging.AtualizaPedidoConsumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
@@ -13,12 +14,12 @@ public class AtualizaPedidoConsumerImpl implements AtualizaPedidoConsumer {
 
     private static Logger logger = LoggerFactory.getLogger(AtualizaPedidoConsumerImpl.class);
 
-    @Value("${topic.name")
+    @Value("${topic.name}")
     private String topicName;
 
     @Override
     @KafkaListener(topics = "${topic.name}", groupId = "${spring.kafka.consumer.group-id}")
-    public void consumeMessage(ConsumerRecord<String, String> payload) {
+    public void consumeMessage(ConsumerRecord<String, PedidoDTO> payload) {
         logger.info("Efetuando leitura de mensagem da fila..");
         logger.info("Tópico: {}", topicName);
         logger.info("key: {}", payload.key());

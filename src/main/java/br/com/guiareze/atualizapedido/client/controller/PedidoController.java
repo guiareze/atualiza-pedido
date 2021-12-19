@@ -1,5 +1,6 @@
 package br.com.guiareze.atualizapedido.client.controller;
 
+import br.com.guiareze.atualizapedido.client.dto.PedidoDTO;
 import br.com.guiareze.atualizapedido.core.ports.operation.RecebePayloadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,9 +16,9 @@ public class PedidoController {
     private RecebePayloadService recebePayloadService;
 
     @PostMapping("/atualiza-pedido")
-    public ResponseEntity<String> enviaAtualizacaoPedido(@RequestBody String menssage){
-        recebePayloadService.recebePayloadEnviaParaTopico(menssage);
-        return ResponseEntity.status(HttpStatus.OK).body("Mensagem enviada.. " + menssage);
+    public ResponseEntity<String> enviaAtualizacaoPedido(@RequestBody PedidoDTO pedidoDTO){
+        recebePayloadService.recebePayloadEnviaParaTopico(pedidoDTO);
+        return ResponseEntity.status(HttpStatus.OK).body("OK");
     }
 
 }
